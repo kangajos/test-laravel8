@@ -38,9 +38,13 @@ Route::prefix("/")->group(function () {
 
     Route::prefix("withdraw")->group(function () {
         Route::get('/', [WithdrawController::class, 'index'])->name('withdraw.index');
+        Route::get('/create', [WithdrawController::class, 'create'])->name('withdraw.create');
+        Route::post('/', [WithdrawController::class, 'store'])->name('withdraw.store');
     });
 
     Route::prefix("toptup")->group(function () {
         Route::get('/', [TopUpController::class, 'index'])->name('topup.index');
+        Route::get('/create', [TopUpController::class, 'create'])->name('topup.create');
+        Route::post('/create', [TopUpController::class, 'store'])->name('topup.store');
     });
 });
