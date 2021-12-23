@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MutationController;
+use App\Http\Controllers\TestBeginerController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\WithdrawController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+# route test beginer
+Route::get("/duplikat", [TestBeginerController::class, "duplikat"])->name("beginer.duplikat");
+Route::get("/tangga", [TestBeginerController::class, "tangga"])->name("beginer.tangga");
 
 # handle authenticate
 Route::prefix("/auth")->group(function () {
@@ -28,7 +32,7 @@ Route::prefix("/auth")->group(function () {
 });
 
 
-Route::prefix("/")->group(function () {
+Route::prefix("/")->middleware("admin")->group(function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 

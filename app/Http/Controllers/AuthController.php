@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
     public function index()
     {
+        if (Auth::check()) {
+            return redirect()->route('dashboard.index');
+        }
         return view('auth.login');
     }
-
 
     public function login(Request $request)
     {
@@ -36,6 +39,9 @@ class AuthController extends Controller
 
     public function registration()
     {
+        if (Auth::check()) {
+            return redirect()->route('dashboard.index');
+        }
         return view('auth.registration');
     }
 
@@ -62,16 +68,6 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
-    }
-
-
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return view('dashboard');
-        }
-
-        return redirect("login")->withSuccess('Login Berhasil');
     }
 
 

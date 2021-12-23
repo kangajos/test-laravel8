@@ -22,6 +22,12 @@
                 <ul class="navbar-nav">
                     @guest
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('beginer.duplikat') }}">Duplikasi Huruf</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('beginer.tangga') }}">Tangga</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('login.index') }}">Login</a>
                         </li>
                         <li class="nav-item">
@@ -40,9 +46,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mutation.index') }}">Mutasi</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('signout') }}">User</a>
-                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('signout') }}">Logout</a>
                         </li>
